@@ -1,0 +1,21 @@
+head
+    title Login in Messenger
+    link(rel="stylesheet", href="./style.sass")
+body
+    .container
+        .form-card(id="login-form-card")
+            .title
+                h3 Вход
+            form(action="/login")
+                .fields
+                    .field
+                        input(id="login" name="login" placeholder=" " type="text")
+                        label(for="login" class="placeholder") Логин
+                    .field
+                        input(id="password" name="password" type="password" placeholder=" ")
+                        label(for="password" class="placeholder") Пароль
+                    .buttons
+                        .field
+                            input(name="submit-btn" type="submit" value="Авторизоваться")
+                        .field
+                            a(href='../registration/index.pug') Нет аккаунта?

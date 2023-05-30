@@ -1,0 +1,37 @@
+head
+    title Login in Messenger
+    link(rel="stylesheet", href="./style.sass")
+body
+    .container
+        .form-card(id="registration-form-card")
+            .title
+                h3 Вход
+            form(action="/login")
+                .fields
+                    .field
+                        input(id="email" name="email" placeholder=" " type="text")
+                        label(for="email" class="placeholder") Почта
+                    .field
+                        input(id="login" name="login" placeholder=" " type="text")
+                        label(for="login" class="placeholder") Логин
+                    .field
+                        input(id="first-name" name="first-name" placeholder=" " type="text")
+                        label(for="first-name" class="placeholder") Имя
+                    .field
+                        input(id="last-name" name="last-name" placeholder=" " type="text")
+                        label(for="last-name" class="placeholder") Фамилия
+                    .field
+                        input(id="phone" name="phone" placeholder=" " type="text")
+                        label(for="phone" class="placeholder") Телефон
+                    .field
+                        input(id="password" name="password" type="password" placeholder=" ")
+                        label(for="password" class="placeholder") Пароль
+                    .field
+                        input(id="password-confirmation" name="password-confirmation" type="password" placeholder=" ")
+                        label(for="password-confirmation" class="placeholder") Подтверждение пароля
+                        label(class="oninvalid") Пароли не совпадают
+                    .buttons
+                        .field
+                            input(name="submit-btn" type="submit" value="Зарегистрироваться")
+                        .field
+                            a(href='../login/index.pug') Войти

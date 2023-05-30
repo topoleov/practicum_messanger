@@ -1,0 +1,101 @@
+@use 'base'
+
+@mixin floating-placeholder
+  &:focus,
+  &:not(:placeholder-shown)
+    padding-top: 1.625rem
+    padding-bottom: .625rem
+
+  &:focus~label.placeholder,
+  &:not(:placeholder-shown)~label.placeholder
+    transform: translateY(-1rem) translateX(.15rem)
+    font-size: 9px
+
+@mixin floating-placeholder-label
+  label.placeholder
+    color: base.$font-color-grey
+    display: block
+    margin-bottom: 0.25rem
+    position: absolute
+    top: 1rem
+    left: 0
+    height: 100%
+    pointer-events: none
+    border: 1px solid transparent
+    transform-origin: 0 0
+    transition: color .15s ease-in-out, transform .15s ease-in-out
+
+@mixin form-card
+  .form-card
+    background-color: white
+    border-radius: 1rem
+    width: 340px
+    padding-top: 50px
+    filter: drop-shadow(0px 0px 2px #bbb)
+    text-align: center
+    //height: 460px
+    box-sizing: border-box
+
+    .title
+      h3
+        margin: 0 0 1rem 0
+
+    form
+      .fields
+        display: flex
+        flex-flow: column wrap
+        align-content: center
+        height: 100%
+
+        .field
+          margin-bottom: 1rem
+          position: relative
+          width: 280px
+          box-sizing: border-box
+          @include floating-placeholder-label
+          label.oninvalid
+            margin-right: 100%
+            margin-left: auto
+            padding-left: 2px
+            color: base.$invalid-text
+            font-size: 8px
+        .buttons
+          display: flex
+          flex-flow: column nowrap
+          justify-self: flex-end
+          margin-top: auto
+          margin-bottom: 55px
+          box-sizing: border-box
+          a:visited
+            color: base.$primary-color
+
+        input
+          &[type="text"],
+          &[type="password"]
+            width: 280px
+            display: block
+            height: calc(2.25rem + 2px)
+            font-weight: 400
+            line-height: 1.5
+            color: base.$font-color
+            background-color: white
+            background-clip: padding-box
+            border: none
+            border-bottom: 1px solid base.$primary-color
+            border-radius: 0
+            appearance: none
+          &:focus
+            outline: 0
+          &::placeholder
+            color: base.$font-color-grey
+
+          @include floating-placeholder
+
+          &[type=submit]
+            background-color: base.$primary-color
+            padding: .7rem
+            border-radius: 8px
+            border: 0 solid white
+            color: white
+            width: 100%
+            cursor: pointer
